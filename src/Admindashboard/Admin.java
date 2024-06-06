@@ -40,6 +40,7 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         acc_name = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -67,6 +68,8 @@ public class Admin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lease = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,6 +81,8 @@ public class Admin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -133,7 +138,7 @@ public class Admin extends javax.swing.JFrame {
         });
         dash.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 190, 60));
 
-        jPanel1.add(dash, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 60));
+        jPanel1.add(dash, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 260, 60));
 
         tenant.setBackground(new java.awt.Color(0, 0, 51));
         tenant.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,7 +162,7 @@ public class Admin extends javax.swing.JFrame {
         tenant.add(jLabel21);
         jLabel21.setBounds(10, 0, 230, 60);
 
-        jPanel1.add(tenant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 260, 60));
+        jPanel1.add(tenant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 260, 60));
 
         payments.setBackground(new java.awt.Color(0, 0, 51));
         payments.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,7 +182,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Payments");
+        jLabel20.setText("Tenants Record ");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -186,9 +191,9 @@ public class Admin extends javax.swing.JFrame {
                 jLabel20MouseEntered(evt);
             }
         });
-        payments.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 120, 50));
+        payments.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 170, 50));
 
-        jPanel1.add(payments, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 260, 50));
+        jPanel1.add(payments, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 260, 50));
 
         userAcc.setBackground(new java.awt.Color(255, 0, 102));
         userAcc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,7 +231,7 @@ public class Admin extends javax.swing.JFrame {
         house.add(jLabel2);
         jLabel2.setBounds(30, 0, 200, 60);
 
-        jPanel1.add(house, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 60));
+        jPanel1.add(house, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 260, 60));
 
         desktopPaneControl.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -272,6 +277,37 @@ public class Admin extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-male-user-100.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 150, 140));
+
+        lease.setBackground(new java.awt.Color(0, 0, 51));
+        lease.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                leaseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                leaseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                leaseMouseExited(evt);
+            }
+        });
+        lease.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setBackground(new java.awt.Color(255, 0, 102));
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Tenant Lease");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel22MouseEntered(evt);
+            }
+        });
+        lease.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 160, 50));
+
+        jPanel1.add(lease, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 260, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -396,6 +432,28 @@ public class Admin extends javax.swing.JFrame {
         DashAdmin as =new DashAdmin();
         desktopPaneControl.add(as).setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseClicked
+        
+    private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseEntered
+
+    private void leaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaseMouseClicked
+        desktopPaneControl.removeAll(); 
+         transaction tr =new transaction();
+        desktopPaneControl.add(tr).setVisible(true);
+    }//GEN-LAST:event_leaseMouseClicked
+
+    private void leaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaseMouseEntered
+         lease.setBackground(navcolor);
+    }//GEN-LAST:event_leaseMouseEntered
+
+    private void leaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaseMouseExited
+      lease.setBackground(hovercolor);
+    }//GEN-LAST:event_leaseMouseExited
  
     /**
      * @param args the command line arguments
@@ -435,12 +493,14 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
     private javax.swing.JPanel dash;
-    private javax.swing.JDesktopPane desktopPaneControl;
+    public javax.swing.JDesktopPane desktopPaneControl;
     private javax.swing.JPanel house;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -450,6 +510,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPanel lease;
     private javax.swing.JPanel payments;
     private javax.swing.JPanel tenant;
     private javax.swing.JPanel userAcc;

@@ -68,8 +68,6 @@ public class rechouses extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        d = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -118,22 +116,6 @@ public class rechouses extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
-
-        d.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        d.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        d.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dActionPerformed(evt);
-            }
-        });
-        jPanel3.add(d);
-        d.setBounds(10, 310, 130, 40);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Due Date");
-        jPanel3.add(jLabel13);
-        jLabel13.setBounds(10, 260, 100, 34);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
@@ -200,7 +182,7 @@ public class rechouses extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(p);
-        p.setBounds(150, 310, 140, 40);
+        p.setBounds(10, 350, 90, 40);
 
         p_add.setBackground(new java.awt.Color(255, 204, 255));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,7 +205,7 @@ public class rechouses extends javax.swing.JInternalFrame {
         jLabel6.setBounds(20, 0, 60, 40);
 
         jPanel3.add(p_add);
-        p_add.setBounds(160, 490, 110, 40);
+        p_add.setBounds(160, 460, 110, 40);
 
         p_edit.setBackground(new java.awt.Color(255, 204, 255));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,7 +228,7 @@ public class rechouses extends javax.swing.JInternalFrame {
         jLabel7.setBounds(20, 0, 79, 40);
 
         jPanel3.add(p_edit);
-        p_edit.setBounds(160, 540, 110, 40);
+        p_edit.setBounds(160, 510, 110, 40);
 
         delete.setBackground(new java.awt.Color(255, 204, 255));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -269,78 +251,78 @@ public class rechouses extends javax.swing.JInternalFrame {
         jLabel2.setBounds(20, 0, 90, 40);
 
         jPanel3.add(delete);
-        delete.setBounds(20, 540, 130, 40);
+        delete.setBounds(20, 510, 130, 40);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Status");
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(20, 450, 90, 34);
+        jLabel10.setBounds(20, 420, 90, 34);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Price");
         jPanel3.add(jLabel22);
-        jLabel22.setBounds(150, 270, 70, 34);
+        jLabel22.setBounds(10, 310, 70, 34);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setText("House Number");
         jPanel3.add(jLabel20);
-        jLabel20.setBounds(150, 10, 150, 34);
+        jLabel20.setBounds(150, 50, 150, 34);
 
         hn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         hn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(hn);
-        hn.setBounds(150, 50, 140, 40);
+        hn.setBounds(150, 90, 140, 40);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Water");
         jPanel3.add(jLabel26);
-        jLabel26.setBounds(150, 100, 90, 40);
+        jLabel26.setBounds(150, 140, 90, 40);
 
         w.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         w.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(w);
-        w.setBounds(150, 140, 140, 40);
+        w.setBounds(150, 180, 140, 40);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("Maintenance");
         jPanel3.add(jLabel27);
-        jLabel27.setBounds(150, 180, 130, 34);
+        jLabel27.setBounds(150, 220, 130, 34);
 
         m.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         m.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(m);
-        m.setBounds(150, 220, 140, 40);
+        m.setBounds(150, 260, 140, 40);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("Security");
         jPanel3.add(jLabel28);
-        jLabel28.setBounds(10, 180, 90, 34);
+        jLabel28.setBounds(10, 220, 90, 34);
 
         s.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         s.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(s);
-        s.setBounds(10, 220, 130, 40);
+        s.setBounds(10, 260, 130, 40);
 
         e.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         e.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(e);
-        e.setBounds(10, 140, 130, 40);
+        e.setBounds(10, 180, 130, 40);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("Electricity");
         jPanel3.add(jLabel29);
-        jLabel29.setBounds(10, 100, 100, 40);
+        jLabel29.setBounds(10, 140, 100, 40);
 
         stats.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         stats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AVAILABLE", "OCCUPIED" }));
         jPanel3.add(stats);
-        stats.setBounds(20, 490, 130, 40);
+        stats.setBounds(20, 460, 130, 40);
 
         total.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         total.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -350,18 +332,18 @@ public class rechouses extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(total);
-        total.setBounds(20, 400, 260, 40);
+        total.setBounds(110, 350, 180, 40);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Total");
         jPanel3.add(jLabel24);
-        jLabel24.setBounds(30, 360, 220, 34);
+        jLabel24.setBounds(110, 310, 170, 30);
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("House ID");
         jPanel3.add(jLabel23);
-        jLabel23.setBounds(10, 10, 110, 34);
+        jLabel23.setBounds(10, 50, 110, 34);
 
         id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -371,7 +353,7 @@ public class rechouses extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(id);
-        id.setBounds(10, 50, 130, 40);
+        id.setBounds(10, 90, 130, 40);
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 620));
 
@@ -398,7 +380,7 @@ public class rechouses extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(h_table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 560, 310));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 590, 320));
 
         p_add2.setBackground(new java.awt.Color(255, 204, 255));
         p_add2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -454,21 +436,17 @@ public class rechouses extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dActionPerformed
 
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
         // TODO add your handling code here:
@@ -476,7 +454,7 @@ public class rechouses extends javax.swing.JInternalFrame {
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
     
-       if (hn.getText().isEmpty() || p.getText().isEmpty() || d.getText().isEmpty()) {
+       if (hn.getText().isEmpty() || p.getText().isEmpty() ) {
        } else {
             
             Connection cn = null;
@@ -501,7 +479,6 @@ public class rechouses extends javax.swing.JInternalFrame {
                 save.setString(1, hn.getText());
                 save.setString(2, status);
                 save.setDouble(3, price);
-                save.setString(4, d.getText());
                 save.setDouble(5, electricity);
                 save.setDouble(6, water);
                 save.setDouble(7, maintenance);
@@ -565,7 +542,6 @@ public class rechouses extends javax.swing.JInternalFrame {
                 preparedStatement.setString(1, hn.getText());
                 preparedStatement.setString(2, status);
                 preparedStatement.setString(3, p.getText());
-                preparedStatement.setString(4, d.getText());
                 preparedStatement.setString(5, e.getText());
                 preparedStatement.setString(6, w.getText());
                 preparedStatement.setString(7, m.getText());
@@ -664,7 +640,6 @@ public class rechouses extends javax.swing.JInternalFrame {
             hn.setText(hnoValue);
             stats.setSelectedItem(hstatusValue);
             p.setText(hpriceValue);
-            d.setText(hdateValue);
             e.setText(electricity);
             w.setText(water);
             m.setText(maintenance);
@@ -720,7 +695,6 @@ public class rechouses extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField d;
     private javax.swing.JPanel delete;
     private javax.swing.JTextField e;
     private javax.swing.JTable h_table;
@@ -728,7 +702,6 @@ public class rechouses extends javax.swing.JInternalFrame {
     public static final javax.swing.JTextField id = new javax.swing.JTextField();
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

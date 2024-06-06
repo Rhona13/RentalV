@@ -135,7 +135,7 @@ public class RegTenants extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel8.setText("Date Started");
+        jLabel8.setText("Date Signed");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 170, 34));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -318,7 +318,7 @@ public class RegTenants extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("TENANTS REGISTRATION");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 370, 50));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 370, 50));
 
         t_able.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         t_able.setModel(new javax.swing.table.DefaultTableModel(
@@ -357,7 +357,7 @@ public class RegTenants extends javax.swing.JInternalFrame {
                 searchKeyPressed(evt);
             }
         });
-        jPanel2.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 520, 30));
+        jPanel2.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 540, 30));
 
         refresh.setBackground(new java.awt.Color(255, 204, 255));
         refresh.addMouseListener(new java.awt.event.MouseAdapter() {

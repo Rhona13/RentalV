@@ -37,7 +37,7 @@ private Connection con;
   Date todaydate = new Date(l);
   
       try {
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/renatal", "root", "");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/renatal", "root", "");
           st = con.prepareStatement("SELECT COUNT(*) FROM occupant");
            rs = st.executeQuery();
           while (rs.next()){
@@ -52,14 +52,7 @@ private Connection con;
               
           house.setText(String.valueOf(count));   
           }
-           st = con.prepareStatement("SELECT COUNT(*) FROM ");
-           rs = st.executeQuery();
-           while (rs.next()){
-              int count = rs.getInt(1);
-              
-          payment.setText(String.valueOf(count)); 
-           }
-        
+         
             
            
       } catch (Exception e) {
