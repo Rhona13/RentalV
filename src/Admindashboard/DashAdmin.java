@@ -52,6 +52,15 @@ private Connection con;
               
           house.setText(String.valueOf(count));   
           }
+           
+           st = con.prepareStatement("SELECT COUNT(*) FROM issue");
+           rs = st.executeQuery();
+           while (rs.next()){
+              int count = rs.getInt(1);
+              
+          records.setText(String.valueOf(count));   
+          }
+         
          
             
            
@@ -73,7 +82,7 @@ private Connection con;
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        payment = new javax.swing.JLabel();
+        records = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -114,10 +123,10 @@ private Connection con;
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 242, 26);
 
-        payment.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
-        payment.setText("10");
-        jPanel2.add(payment);
-        payment.setBounds(140, 50, 100, 80);
+        records.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
+        records.setText("10");
+        jPanel2.add(records);
+        records.setBounds(140, 50, 100, 80);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/availability.png"))); // NOI18N
         jPanel2.add(jLabel5);
@@ -151,7 +160,7 @@ private Connection con;
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 65, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("No. of Payments  ");
+        jLabel2.setText("No. of Tenant Records  ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 219, 36));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -250,7 +259,7 @@ private Connection con;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel occupant;
-    private javax.swing.JLabel payment;
+    private javax.swing.JLabel records;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -243,9 +243,9 @@ public class login extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("\"Unlocking efficiency, empowering landlords,\n and redefining");
+        jLabel12.setText("\"Unlocking efficiency, empowering landlords,  and redefining");
         jPanel4.add(jLabel12);
-        jLabel12.setBounds(0, 330, 350, 30);
+        jLabel12.setBounds(0, 330, 360, 30);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N

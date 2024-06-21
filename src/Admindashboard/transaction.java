@@ -140,7 +140,7 @@ public class transaction extends javax.swing.JInternalFrame {
                     pst.setInt(2, rentID);
                     pst.setDate(3, datestarted);
                     pst.setDate(4, dateended);
-                    pst.setString(5, "Pending");
+                    pst.setString(5, "Available");
 
 
                     int rowCount= pst.executeUpdate();
@@ -188,7 +188,7 @@ public class transaction extends javax.swing.JInternalFrame {
                    return false;
                    }
                    if(tenant.equals("")){
-                   JOptionPane.showMessageDialog(this, "Please Enter Tenant Name");
+                   JOptionPane.showMessageDialog(this, "Please Enter Tenant ID");
                    return false;
                    }     
                    if(STARTED.getDate() == null){
@@ -638,7 +638,7 @@ public class transaction extends javax.swing.JInternalFrame {
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(180, 100, 200, 440);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 420, 620));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 400, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -27,7 +27,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author scc-college
  */
-public class Payment extends javax.swing.JInternalFrame {
+public final class Payment extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Payment
@@ -38,88 +38,69 @@ public class Payment extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
         viewdetails();
+
     }
     DefaultTableModel model;
-       private Connection connect;
-   public void viewdetails(){
+    private Connection connect;
+
+    public void viewdetails() {
         try {
-             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/renatal", "root", "");
-             Statement st = connect.createStatement();
-             ResultSet rs = st.executeQuery("select * from issue");
-             
-             while(rs.next()){
-               String is_id = rs.getString("is_id");
-             String houseID = rs.getString("h_id");
-             String rentID = rs.getString("o_id");
-             String started = rs.getString("started_date");
-             String duedate = rs.getString("end_date");
-             String status = rs.getString("is_status");
-             
-             Object [] obj = {is_id,houseID,rentID,started,duedate,status};
-             model = (DefaultTableModel) h_table.getModel();
-             model.addRow(obj);
-             
-             }
-             
-             
+
+            ResultSet rs = new DBConnector().getData("select * from issue");
+            h_table.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void cleartable() {
+      
+
+        try {
+            ResultSet rs = new DBConnector().getData("select * from issue");
+            h_table.setModel(DbUtils.resultSetToTableModel(rs));
+            if (rs.next() == false) {
+                JOptionPane.showMessageDialog(this, "NO RECORDS FOUND");
+
+            } else {
+
+                while (rs.next()) {
+                    String is_id = rs.getString("is_id");
+                    String houseID = rs.getString("h_id");
+                    String rentID = rs.getString("o_id");
+                    String started = rs.getString("started_date");
+                    String duedate = rs.getString("end_date");
+                    String status = rs.getString("is_status");
+
+                    Object[] obj = {is_id, houseID, rentID, started, duedate, status};
+                    model = (DefaultTableModel) h_table.getModel();
+                    model.addRow(obj);
+
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
+
         }
-    
-    
     }
-    public void cleartable(){
-    DefaultTableModel model =(DefaultTableModel)h_table.getModel();
-    model.setRowCount(0);
-     
-  
-  
-      try {
-           connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/renatal", "root", "");
-           String sql = "select * from issue where started_date BETWEEN ? and ?";
-           PreparedStatement pst = connect.prepareStatement(sql);
-          ResultSet rs = pst.executeQuery();
-          if(rs.next() == false){
-          JOptionPane.showMessageDialog(this, "NO RECORDS FOUND");
-          
-          }else{
-          
-          
-             while(rs.next()){
-               String is_id = rs.getString("is_id");
-             String houseID = rs.getString("h_id");
-             String rentID = rs.getString("o_id");
-             String started = rs.getString("started_date");
-             String duedate = rs.getString("end_date");
-             String status = rs.getString("is_status");
-             
-             Object [] obj = {is_id,houseID,rentID,started,duedate,status};
-             model = (DefaultTableModel) h_table.getModel();
-             model.addRow(obj);
-             
-          }
-          }  
-      } catch (Exception e) {
-      e.printStackTrace();
-      
-      }
-  }
-  
-   public void filter(String qry ){
-             model = (DefaultTableModel) h_table.getModel();
-         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-         h_table.setRowSorter(trs);
-       
-         if(qry =="ALL"){
+
+    public void filter(String qry) {
+        model = (DefaultTableModel) h_table.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
         h_table.setRowSorter(trs);
-         }else{
-         trs.setRowFilter(RowFilter.regexFilter(qry));
-         }
-       
-       }
+
+        if (qry == "ALL") {
+            h_table.setRowSorter(trs);
+        } else {
+            trs.setRowFilter(RowFilter.regexFilter(qry));
+        }
+
+    }
 
     Color navcolor = new Color(255, 204, 255);
-    Color hovercolor = new Color(0,0,51);
+    Color hovercolor = new Color(0, 0, 51);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,9 +119,7 @@ public class Payment extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
-        p_add3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        p_add4 = new javax.swing.JPanel();
+        back = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
@@ -169,7 +148,7 @@ public class Payment extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(h_table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 840, 280));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 840, 320));
 
         p_add2.setBackground(new java.awt.Color(255, 204, 255));
         p_add2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,7 +180,7 @@ public class Payment extends javax.swing.JInternalFrame {
         p_add2.add(jLabel2);
         jLabel2.setBounds(50, 0, 30, 30);
 
-        jPanel2.add(p_add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 140, 50));
+        jPanel2.add(p_add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 140, 50));
 
         search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         search.setText("SEARCH");
@@ -223,48 +202,21 @@ public class Payment extends javax.swing.JInternalFrame {
                 searchKeyReleased(evt);
             }
         });
-        jPanel2.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 610, 30));
+        jPanel2.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 610, 30));
 
-        p_add3.setBackground(new java.awt.Color(255, 204, 255));
-        p_add3.addMouseListener(new java.awt.event.MouseAdapter() {
+        back.setBackground(new java.awt.Color(255, 204, 255));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p_add3MouseClicked(evt);
+                backMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                p_add3MouseEntered(evt);
+                backMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                p_add3MouseExited(evt);
+                backMouseExited(evt);
             }
         });
-        p_add3.setLayout(null);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("VIEW ALL ");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-        p_add3.add(jLabel9);
-        jLabel9.setBounds(10, 0, 130, 50);
-
-        jPanel2.add(p_add3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 150, 50));
-
-        p_add4.setBackground(new java.awt.Color(255, 204, 255));
-        p_add4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p_add4MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                p_add4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                p_add4MouseExited(evt);
-            }
-        });
-        p_add4.setLayout(null);
+        back.setLayout(null);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -274,10 +226,10 @@ public class Payment extends javax.swing.JInternalFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        p_add4.add(jLabel10);
-        jLabel10.setBounds(30, 0, 110, 50);
+        back.add(jLabel10);
+        jLabel10.setBounds(40, 0, 90, 50);
 
-        jPanel2.add(p_add4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 50));
+        jPanel2.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 170, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -298,15 +250,12 @@ public class Payment extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_h_tableMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        MessageFormat head = new MessageFormat("RECORDS");
-        MessageFormat FOOT = new MessageFormat("Page{0, number , integer}");
-
+        MessageFormat header = new MessageFormat("Transaction Reports");
+        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
         try {
-            h_table.print(JTable.PrintMode.NORMAL, head, FOOT);
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(this, "cannot print");
+            h_table.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (PrinterException er) {
+            System.out.println("" + er.getMessage());
         }
     }//GEN-LAST:event_jLabel8MouseClicked
 
@@ -315,11 +264,11 @@ public class Payment extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_p_add2MouseClicked
 
     private void p_add2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add2MouseEntered
-          p_add2.setBackground(hovercolor);
+        p_add2.setBackground(hovercolor);
     }//GEN-LAST:event_p_add2MouseEntered
 
     private void p_add2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add2MouseExited
-          p_add2.setBackground(navcolor);
+        p_add2.setBackground(navcolor);
     }//GEN-LAST:event_p_add2MouseExited
 
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
@@ -341,57 +290,35 @@ public class Payment extends javax.swing.JInternalFrame {
         obj.setRowFilter(RowFilter.regexFilter(search.getText()));
     }//GEN-LAST:event_searchKeyReleased
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-         cleartable();
-         viewdetails();
-        
-    }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void p_add3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseClicked
-
-    }//GEN-LAST:event_p_add3MouseClicked
-
-    private void p_add3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseEntered
-        p_add3.setBackground(hovercolor);
-
-    }//GEN-LAST:event_p_add3MouseEntered
-
-    private void p_add3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseExited
-        p_add3.setBackground(navcolor);
-
-    }//GEN-LAST:event_p_add3MouseExited
-
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
 
-    private void p_add4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add4MouseClicked
-       Admin ad = new Admin();
-       ad.setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_p_add4MouseClicked
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backMouseClicked
 
-    private void p_add4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add4MouseEntered
+    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_p_add4MouseEntered
+    }//GEN-LAST:event_backMouseEntered
 
-    private void p_add4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add4MouseExited
+    private void backMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_p_add4MouseExited
+    }//GEN-LAST:event_backMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel back;
     private javax.swing.JTable h_table;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel p_add2;
-    private javax.swing.JPanel p_add3;
-    private javax.swing.JPanel p_add4;
     private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 }

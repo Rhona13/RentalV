@@ -474,16 +474,16 @@ public class rechouses extends javax.swing.JInternalFrame {
 
                 double totalValue = electricity + water + maintenance + security + price;
 
-                save = cn.prepareStatement("INSERT INTO houses (h_number, h_status, h_price, h_date, h_electricity, h_water, h_maintencance, h_security, h_total) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ? , ?, ?)");
+                save = cn.prepareStatement("INSERT INTO houses (h_number, h_status, h_price, h_electricity, h_water, h_maintenance, h_security, h_total) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ? , ?)");
                 save.setString(1, hn.getText());
                 save.setString(2, status);
                 save.setDouble(3, price);
-                save.setDouble(5, electricity);
-                save.setDouble(6, water);
-                save.setDouble(7, maintenance);
-                save.setDouble(8, security);
-                save.setDouble(9, totalValue);
+                save.setDouble(4, electricity);
+                save.setDouble(5, water);
+                save.setDouble(6, maintenance);
+                save.setDouble(7, security);
+                save.setDouble(8, totalValue);
 
                 int row = save.executeUpdate();
 
@@ -536,18 +536,19 @@ public class rechouses extends javax.swing.JInternalFrame {
                 TableModel tbl = h_table.getModel();
                 String selectedId = tbl.getValueAt(rowIndex, 0).toString();
 
-                String updateQuery = "UPDATE houses SET h_number = ?, h_status = ?, h_price = ?,h_date = ?, h_electricity = ?, h_water = ?, h_maintencance = ?, h_security = ? , h_total = ? WHERE o_id = ?";
+                String updateQuery = "UPDATE houses SET h_number = ?, h_status = ?, h_price = ?, h_electricity = ?, h_water = ?, h_maintencance = ?, h_security = ? , h_total = ? WHERE o_id = ?";
                 preparedStatement = connection.prepareStatement(updateQuery);
 
                 preparedStatement.setString(1, hn.getText());
-                preparedStatement.setString(2, status);
+                preparedStatement.setString(2, stats.getSelectedItem().toString());
                 preparedStatement.setString(3, p.getText());
-                preparedStatement.setString(5, e.getText());
-                preparedStatement.setString(6, w.getText());
-                preparedStatement.setString(7, m.getText());
-                preparedStatement.setString(8, s.getText());
-                preparedStatement.setString(9, total.getText());
-                preparedStatement.setString(10, selectedId);
+                preparedStatement.setString(4, e.getText());
+                preparedStatement.setString(5, w.getText());
+                preparedStatement.setString(6, m.getText());
+                preparedStatement.setString(7, s.getText());
+                preparedStatement.setString(8, total.getText());
+          
+
 
                 int rowsAffected = preparedStatement.executeUpdate();
 
@@ -628,13 +629,12 @@ public class rechouses extends javax.swing.JInternalFrame {
             String xid = model.getValueAt(rowIndex, 0).toString();
             String hnoValue = model.getValueAt(rowIndex, 1).toString();
             String hstatusValue = model.getValueAt(rowIndex, 2).toString();
-            String hpriceValue = model.getValueAt(rowIndex, 3).toString();
-            String hdateValue = model.getValueAt(rowIndex, 4).toString();
-            String electricity = model.getValueAt(rowIndex, 5).toString();
-            String water = model.getValueAt(rowIndex, 6).toString();
-            String maintenance = model.getValueAt(rowIndex, 7).toString();
-            String security = model.getValueAt(rowIndex, 8).toString();
-            String totalValue = model.getValueAt(rowIndex, 9).toString();
+            String hpriceValue = model.getValueAt(rowIndex, 3).toString(); 
+            String electricity = model.getValueAt(rowIndex, 4).toString();
+            String water = model.getValueAt(rowIndex, 5).toString();
+            String maintenance = model.getValueAt(rowIndex, 6).toString();
+            String security = model.getValueAt(rowIndex, 7).toString();
+            String totalValue = model.getValueAt(rowIndex, 8).toString();
 
             id.setText(xid);
             hn.setText(hnoValue);
